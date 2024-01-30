@@ -8,7 +8,6 @@
 import SwiftUI
 
 struct ListView: View {
-    @EnvironmentObject var appState: ViewPagerAppState
     let viewModel: ListViewModel
     var body: some View {
         NavigationView {
@@ -23,8 +22,12 @@ struct ListView: View {
     }
 
     @ViewBuilder func destinationView(_ index: Int) -> some View {
-        ImagePagerView(viewModel: ImagePagerViewModel(imageInfos: viewModel.imageInfos, appState: appState),
-                       tabItem: .constant(index))
+        ImagePagerView(
+            viewModel: ImagePagerViewModel(
+                imageInfos: viewModel.imageInfos
+            ),
+            currentItem: index
+        )
             .navigationBarTitleDisplayMode(.inline)
     }
 }

@@ -10,6 +10,7 @@ import SwiftUI
 struct ContentView: View {
     var body: some View {
         ListView(viewModel: ListViewModel(imageInfos: SampleImageInfos().infos))
+            .navigationViewStyle(.stack)
     }
 }
 
